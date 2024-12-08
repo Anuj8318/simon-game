@@ -13,6 +13,7 @@ body {
     height: 100vh; /* Full viewport height */
     flex-direction: column; /* Stack the content vertically */
     font-family: "Doto", sans-serif;
+    overflow: hidden; /* Prevent scrolling */
 }
 
 h1 {
@@ -20,21 +21,28 @@ h1 {
     font-size: 5rem; /* Adjusted for responsiveness */
     margin-bottom: 50px; /* Spacing between the heading and grid */
     text-align: center;
+    word-wrap: break-word; /* Ensure long text breaks properly */
+    padding: 0 10px; /* Add some padding for mobile devices */
 }
 
+/* Game Container */
 .main {
     display: grid;
-    grid-template-columns: repeat(2, auto); /* Two columns */
-    grid-template-rows: repeat(2, auto);   /* Two rows */
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    grid-template-rows: repeat(2, 1fr); /* Two rows with equal height */
     gap: 10px; /* Add a small gap between buttons */
+    width: 100%; /* Ensure buttons stay within the screen */
+    max-width: 500px; /* Limit the maximum width for larger screens */
+    height: auto;
 }
 
+/* Button Styling */
 .button {
     height: 150px;
     width: 150px;
-    border-radius: 60px; /* Slightly rounded edges */
+    border-radius: 60px;
     border: 10px solid black;
-    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover/click animations */
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .red {
@@ -55,39 +63,79 @@ h1 {
 
 /* Hover and Click Effects */
 .button:hover {
-    transform: scale(1.1); /* Enlarge slightly on hover */
-    box-shadow: 0 0 15px white; /* Glow effect */
+    transform: scale(1.1);
+    box-shadow: 0 0 15px white;
 }
 
 .button:active {
-    transform: scale(0.9); /* Shrink slightly on click */
-    opacity: 0.8; /* Dim the button on click */
+    transform: scale(0.9);
+    opacity: 0.8;
 }
 
 /* Pressed State */
 .pressed {
     box-shadow: 0 0 20px white;
-    background-color: grey; /* Dimmed color for pressed state */
+    background-color: grey;
 }
 
-/* Game Over Screen */
+/* Game Over Styling */
 .game-over {
-    background-color: red; /* Flash red background */
+    background-color: red;
     opacity: 0.8;
 }
 
 /* Scoreboard Styling */
 #scoreboard {
     color: #FEF2BF;
-    background-color: #03396C; /* Add contrast */
+    background-color: #03396C;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    margin-top: 20px; /* Space below the grid */
-    width: 80%; /* Responsive width */
+    margin-top: 20px;
+    width: 80%;
+    max-width: 400px; /* Make the scoreboard responsive */
 }
 
 #scoreboard p {
     margin: 10px 0;
     font-size: 1.2rem;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem; /* Reduce heading size on mobile */
+        margin-bottom: 30px;
+    }
+
+    .main {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .button {
+        height: 120px; /* Smaller buttons on mobile */
+        width: 120px;
+    }
+
+    #scoreboard {
+        width: 90%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem; /* Further reduce heading size */
+        margin-bottom: 20px;
+    }
+
+    .button {
+        height: 100px; /* Even smaller buttons */
+        width: 100px;
+    }
+
+    #scoreboard {
+        font-size: 0.9rem;
+    }
 }
