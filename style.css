@@ -1,0 +1,93 @@
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1B1833;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    flex-direction: column; /* Stack the content vertically */
+    font-family: "Doto", sans-serif;
+}
+
+h1 {
+    color: #F7F7F7;
+    font-size: 5rem; /* Adjusted for responsiveness */
+    margin-bottom: 50px; /* Spacing between the heading and grid */
+    text-align: center;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* Two columns */
+    grid-template-rows: repeat(2, auto);   /* Two rows */
+    gap: 10px; /* Add a small gap between buttons */
+}
+
+.button {
+    height: 150px;
+    width: 150px;
+    border-radius: 60px; /* Slightly rounded edges */
+    border: 10px solid black;
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover/click animations */
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+/* Hover and Click Effects */
+.button:hover {
+    transform: scale(1.1); /* Enlarge slightly on hover */
+    box-shadow: 0 0 15px white; /* Glow effect */
+}
+
+.button:active {
+    transform: scale(0.9); /* Shrink slightly on click */
+    opacity: 0.8; /* Dim the button on click */
+}
+
+/* Pressed State */
+.pressed {
+    box-shadow: 0 0 20px white;
+    background-color: grey; /* Dimmed color for pressed state */
+}
+
+/* Game Over Screen */
+.game-over {
+    background-color: red; /* Flash red background */
+    opacity: 0.8;
+}
+
+/* Scoreboard Styling */
+#scoreboard {
+    color: #FEF2BF;
+    background-color: #03396C; /* Add contrast */
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px; /* Space below the grid */
+    width: 80%; /* Responsive width */
+}
+
+#scoreboard p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
